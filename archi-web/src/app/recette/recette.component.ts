@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import {RestService, Recette} from '../rest.service';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-recette',
@@ -9,8 +11,13 @@ import {RestService, Recette} from '../rest.service';
 export class RecetteComponent implements OnInit {
 
   recettes: Recette[] = [];
+  filter: String;
+  subscription: Subscription;
 
-  constructor(public rest:RestService) { }
+  constructor(public rest:RestService, private search: SearchService) { 
+    this.filter = "";
+    this.subscription = this.search.currentSearch.subscribe(filter => this.filter = filter);
+  }
 
   ngOnInit(): void {
     this.getRecettes();

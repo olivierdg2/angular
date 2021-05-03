@@ -8,7 +8,7 @@
       </div>
     </div>
     <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Une recette, une catégorie, .." aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Une recette, une catégorie, .." aria-label="Search" (keyup)="send_search($event)">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-      </form>
+    </form>
 </nav>

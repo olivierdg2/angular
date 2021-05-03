@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Input() in_filter = "";
+  filter = "";
+  subscription: Subscription;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private search: SearchService) { 
+    this.subscription = this.search.currentSearch.subscribe(filter => this.filter = filter);
+  }
 
   ngOnInit(): void {
+    
+  }
+  send_search(event: any){
+    this.search.changeSearch(event.target.value)
   }
   recettes() {
     this.router.navigate(["/recettes"])

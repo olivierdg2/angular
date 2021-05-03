@@ -12,6 +12,8 @@ import { RecetteComponent } from './recette/recette.component';
 import { AddRecetteComponent } from './add-recette/add-recette.component';
 import { HeaderComponent } from './header/header.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { FilterPipe } from './filter.pipe';
+import { FilterCatPipe } from './filter-cat.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CategoriesComponent } from './categories/categories.component';
     RecetteComponent,
     AddRecetteComponent,
     HeaderComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    FilterPipe,
+    FilterCatPipe
   ],
   imports: [
     BrowserModule,
