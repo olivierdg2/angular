@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {RestService, Recette} from '../rest.service';
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-recette',
@@ -11,7 +10,7 @@ export class RecetteComponent implements OnInit {
 
   recettes: Recette[] = [];
 
-  constructor(public rest:RestService, private router: Router) { }
+  constructor(public rest:RestService) { }
 
   ngOnInit(): void {
     this.getRecettes();
@@ -27,5 +26,4 @@ export class RecetteComponent implements OnInit {
       }
     )
   }
-
 }

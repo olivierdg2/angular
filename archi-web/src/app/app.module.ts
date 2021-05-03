@@ -10,13 +10,17 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import { RecetteComponent } from './recette/recette.component';
 import { AddRecetteComponent } from './add-recette/add-recette.component';
+import { HeaderComponent } from './header/header.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppareilComponent,
     RecetteComponent,
-    AddRecetteComponent
+    AddRecetteComponent,
+    HeaderComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,

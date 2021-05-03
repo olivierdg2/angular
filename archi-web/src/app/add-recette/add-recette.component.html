@@ -1,1 +1,29 @@
-<p>add-recette works!</p>
+<div>
+    <h2>Création d'une recette</h2>
+    <input type="text" [(ngModel)]="recette.name" placeholder="Name"><br>
+    <select [(ngModel)]="recette.category_id">
+        <option *ngFor="let c of categories" value="c.id">
+        {{c.name}}
+        </option>
+    </select>
+    <h3>Ingrédients</h3>
+    <ul>
+        <li *ngFor="let i of recette.Ingredients; let id = index;" >
+            <input [ngModel]="recette.Ingredients[id].Ingredient" placeholder="Ingrédient">
+            <input [ngModel]="recette.Ingredients[id].Quantity" placeholder="Quantité">
+        </li>
+
+    </ul>
+    <button (click)="addIngredient()">Ajouter un ingrédient</button>
+    <h3>Préparation</h3>
+    <ul>
+        <li *ngFor="let s of recette.Preparation; let id = index;" >
+            <input [ngModel]="recette.Preparation[id].Step" placeholder="Etape">
+        </li>
+
+    </ul>
+    <button (click)="addStep">Ajouter une étape</button>
+    <div></div>
+    <button (click)="addRecette()">Ajouter la recette</button>
+
+</div>
