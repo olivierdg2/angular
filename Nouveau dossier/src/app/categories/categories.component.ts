@@ -41,7 +41,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   modifyCategory(index : any){
-    this.router.navigate(['/category/modify',index]);
+
   }
 
   deleteCategory(id : Number, index : any){

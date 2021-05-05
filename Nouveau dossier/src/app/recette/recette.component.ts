@@ -36,11 +36,13 @@ export class RecetteComponent implements OnInit {
   }
 
   showRecette(index : any) {
-    this.router.navigate(['/recette',index]);
+    var id = this.recettes[index].id;
+    this.router.navigate(['/recette',id]);
   }
 
   modifyRecette(index : any) {
-    this.router.navigate(['/recette/modify',index]);
+    var id = this.recettes[index].id;
+    this.router.navigate(['/recette/modify',id]);
   }
 
 
