@@ -34,8 +34,7 @@ export class CategoriesComponent implements OnInit {
     )
   }
 
-  showRecettes(index : any) {
-    var name = this.categories[index].name;
+  showRecettes(name : string) {
     this.search.changeSearch(name);
     this.router.navigate(['']);
   }

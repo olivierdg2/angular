@@ -11,6 +11,7 @@
         <li *ngFor="let i of recette.Ingredients; let id = index;" >
             <input [(ngModel)]="recette.Ingredients[id].Ingredient" placeholder="Ingrédient">
             <input [(ngModel)]="recette.Ingredients[id].Quantity" placeholder="Quantité">
+            <input type="button" value="Supprimer" (click)="deleteIngredient(id)">
         </li>
 
     </ul>
@@ -19,6 +20,7 @@
     <ul>
         <li *ngFor="let s of recette.Preparation; let id = index;" >
             <input [(ngModel)]="recette.Preparation[id].Step" placeholder="Etape">
+            <input type="button" value="Supprimer" (click)="deleteStep(id)">
         </li>
     </ul>
     <button (click)="addStep()">Ajouter une étape</button>

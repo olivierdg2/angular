@@ -9,7 +9,7 @@ const endpoint = "http://localhost:8000/api/";
 export interface Recette {
   id: number;
   name: string;
-  category: Recette_Category;
+  category: number;
   createdAt: Date;
   Ingredients: Ingredient[];
   Preparation: Step[];

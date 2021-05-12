@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category, RestService } from '../rest.service';
+import { Category, Recette, RestService} from '../rest.service';
 
 @Component({
   selector: 'app-modify-recette',
@@ -36,9 +36,16 @@ export class ModifyRecetteComponent implements OnInit {
   }
 
   addRecette() {
-    this.rest.modifyCategory(this.recette).subscribe(
-      (result) => this.router.navigate(["/recettes"]));
-    console.log(this.recette);
+    
+    if (!(typeof this.recette.category == "string")){
+      this.recette.category = this.recette.category.id;
+    }
+    else {
+      this.recette.category = parseInt(this.recette.category);
+    }
+    console.log(this.recette)
+    this.rest.modifyRecette(this.recette).subscribe(
+      (result) => this.router.navigate(["/recette/" + result.id]));
   }
 
   getCategories() {
@@ -63,7 +70,7 @@ export class ModifyRecetteComponent implements OnInit {
   }
 
   deleteIngredient(id:number){
-
+    this.recette.Ingredients.splice(id,1);
   }
 
   addStep(){
@@ -74,4 +81,7 @@ export class ModifyRecetteComponent implements OnInit {
     this.recette.Preparation.push(new_Step);
   }
 
+  deleteStep(id:number){
+    this.recette.Preparation.splice(id,1);
+  }
 }

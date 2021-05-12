@@ -4,8 +4,8 @@
         <th scope="row"></th>
         <td><h1>{{r.name}}</h1></td>
         <td>{{r.category.name}}</td>
-        <td><input type="button" class="btn btn-info" (click)="showRecette(i)" value="Lire la suite"></td>
-        <td><input type="button" class="btn btn-warning" (click)="modifyRecette(i)" value="Modifier"></td>
+        <td><input type="button" class="btn btn-info" (click)="showRecette(r.id)" value="Lire la suite"></td>
+        <td><input type="button" class="btn btn-warning" (click)="modifyRecette(r.id)" value="Modifier"></td>
         <td><input type="button" class="btn btn-danger" (click)="deleteRecette(r.id, i)" value="Supprimer"></td>
         </tr>
 </table>

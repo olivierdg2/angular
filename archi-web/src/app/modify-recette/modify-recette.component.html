@@ -1,7 +1,7 @@
 <div>
     <h2>Modification d'une recette</h2>
-    <input type="text" [(ngModel)]="recette.Name" placeholder="Name"><br>
-    <select [(ngModel)]="recette.Category">
+    <input type="text" [(ngModel)]="recette.name" placeholder="Name" required="true"><br>
+    <select [(ngModel)]="recette.category" required="true">
         <option *ngFor="let c of categories" [value]=c.id>
         {{c.name}}
         </option>
@@ -11,6 +11,7 @@
         <li *ngFor="let i of recette.Ingredients; let id = index;" >
             <input [(ngModel)]="recette.Ingredients[id].Ingredient" placeholder="Ingrédient">
             <input [(ngModel)]="recette.Ingredients[id].Quantity" placeholder="Quantité">
+            <input type="button" value="Supprimer" (click)="deleteIngredient(id)">
         </li>
 
     </ul>
@@ -19,6 +20,7 @@
     <ul>
         <li *ngFor="let s of recette.Preparation; let id = index;" >
             <input [(ngModel)]="recette.Preparation[id].Step" placeholder="Etape">
+            <input type="button" value="Supprimer" (click)="deleteStep(id)">
         </li>
     </ul>
     <button (click)="addStep()">Ajouter une étape</button>
@@ -26,6 +28,6 @@
     <input [(ngModel)]="recette.Image" placeholder="URL">
     <div></div>
 
-    <button (click)="addRecette()">Ajouter la recette</button>
+    <button (click)="addRecette()">Modifier la recette</button>
 
 </div>

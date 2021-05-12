@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {RestService, Recette, Recette_Category, Category, Ingredient, Step} from "../rest.service";
+import {RestService, Recette, Category, Ingredient, Step} from "../rest.service";
 import { ActivatedRoute, Router} from "@angular/router";
 @Component({
   selector: 'app-add-recette',
@@ -35,8 +35,8 @@ export class AddRecetteComponent implements OnInit {
 
   addRecette() {
     this.rest.addRecette(this.recette).subscribe(
-      (result) => this.router.navigate(["/recettes"]));
-    console.log(this.recette);
+      (result) => this.router.navigate(["/recette/" + result.id])
+    );
   }
 
   getCategories() {
@@ -55,13 +55,11 @@ export class AddRecetteComponent implements OnInit {
       Ingredient: "",
       Quantity: ""
     }
-
     this.recette.Ingredients.push(new_Ingredient);
-    console.log(this.recette.Ingredients)
   }
 
   deleteIngredient(id:number){
-
+    this.recette.Ingredients.splice(id,1);
   }
 
   addStep(){
@@ -70,6 +68,10 @@ export class AddRecetteComponent implements OnInit {
     }
 
     this.recette.Preparation.push(new_Step);
+  }
+
+  deleteStep(id:number){
+    this.recette.Preparation.splice(id,1);
   }
 
 }
