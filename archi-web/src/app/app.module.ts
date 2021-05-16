@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppareilComponent } from './appareil/appareil.component';
 
 import { FormsModule } from '@angular/forms';
 
@@ -23,7 +22,6 @@ import { ModifyCategoryComponent } from './modify-category/modify-category.compo
 @NgModule({
   declarations: [
     AppComponent,
-    AppareilComponent,
     RecetteComponent,
     AddRecetteComponent,
     HeaderComponent,
