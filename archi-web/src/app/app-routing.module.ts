@@ -44,7 +44,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "/recettes",
+    redirectTo: "recettes",
     pathMatch: "full"
   }
 

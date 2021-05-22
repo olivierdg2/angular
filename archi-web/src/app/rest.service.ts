@@ -77,7 +77,6 @@ export class RestService {
   }
 
   getCategories(): Observable<any> {
-    console.log("ok");
     return this.http.get<Category>(endpoint + "categories");
   }
 

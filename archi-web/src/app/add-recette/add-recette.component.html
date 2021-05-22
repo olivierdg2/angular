@@ -1,7 +1,7 @@
 <div>
     <h2>Création d'une recette</h2>
-    <input type="text" [(ngModel)]="recette.Name" placeholder="Name"><br>
-    <select [(ngModel)]="recette.Category">
+    <input type="text" [(ngModel)]="recette.Name" placeholder="Name" required="true"><br>
+    <select [(ngModel)]="recette.Category" required="true">
         <option *ngFor="let c of categories" [value]=c.id>
         {{c.name}}
         </option>

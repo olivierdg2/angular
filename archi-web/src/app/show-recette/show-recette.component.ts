@@ -13,7 +13,6 @@ export class ShowRecetteComponent implements OnInit {
 
   private sub: any;
   constructor(private route: ActivatedRoute, public rest:RestService) {
-    this.recette = null;
    }
 
   ngOnInit(): void {
